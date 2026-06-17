@@ -1,0 +1,16 @@
+# Local secrets
+.env
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Logs / temp files
+*.log
+*.tmp
+*.swp
+
+# Docker override files if you create local-only variants later
+*.local.yml
