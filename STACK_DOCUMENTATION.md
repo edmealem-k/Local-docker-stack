@@ -59,7 +59,7 @@ It keeps values out of the compose YAML so the stack is easier to customize.
 Example values used in this setup:
 
 ```env
-COMPOSE_PROJECT_NAME=Local-docker-stack
+COMPOSE_PROJECT_NAME=local-docker-stack
 
 REDIS_IMAGE=redis:8.0-rc1
 REDIS_PORT=6379
@@ -130,7 +130,11 @@ services:
       redis:
         condition: service_healthy
     healthcheck:
-      test: ["CMD-SHELL", "wget -q -O - http://127.0.0.1:5540/ >/dev/null 2>&1 || exit 1"]
+      test:
+        [
+          "CMD-SHELL",
+          "wget -q -O - http://127.0.0.1:5540/ >/dev/null 2>&1 || exit 1",
+        ]
       interval: 20s
       timeout: 10s
       retries: 5
@@ -215,7 +219,11 @@ Docker runs `redis-cli ping` inside the container.
 
 ```yaml
 healthcheck:
-  test: ["CMD-SHELL", "wget -q -O - http://127.0.0.1:5540/ >/dev/null 2>&1 || exit 1"]
+  test:
+    [
+      "CMD-SHELL",
+      "wget -q -O - http://127.0.0.1:5540/ >/dev/null 2>&1 || exit 1",
+    ]
 ```
 
 Docker checks whether the RedisInsight web UI responds.
@@ -410,4 +418,3 @@ Main mental model:
 - `docker-compose.yml` = full local infrastructure blueprint
 - `.env` = configurable values injected into Compose
 - init script = first-time PostgreSQL bootstrap automation
-

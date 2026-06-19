@@ -36,6 +36,12 @@ docker compose up -d
 - RabbitMQ UI: `http://localhost:15672`
 - PostgreSQL: `localhost:5432`
 
+## Screenshot
+
+Docker stack status from `docker ps`:
+
+![Docker stack screenshot](public/image.png)
+
 ## Common Commands
 
 ### Start
